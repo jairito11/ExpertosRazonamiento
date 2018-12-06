@@ -1043,12 +1043,61 @@ public class B11 extends javax.swing.JFrame {
                     System.out.println("R5. |h9|h1| ==> h2");
                     verdadero = true;
                     banderas();
-                    //Corrector git
                 }
             }
         }
+        //Objetivo "H6"
         if (objetivo.equals(r6[1]) && verdadero == false) {
+            elementosF = new String[r6.length - 1];                             //El arreglo temporal se crea de un tamaño r6
+            for (int j = 0; j < l.size(); j++) {                                //Se recorre la lista dinamica
+                if (l.get(j).equals("h6")) {                                    //Se verifica si el elemento que buscamos ya se encuentra en la bc
+                    verdadero = true;                                           //Si es verdadero la variable "verdadero" cambia a true
+                    System.out.println("El objetivo " + objetivo + " es verdadero");//Se imprime que el objetivo es verdadero
+                    break;                                                      //Se rompe el ciclo
+                }
 
+            }
+            //ANTECEDENTES "h6"
+            if (verdadero == false) {                                           //Se checa si aún no se encuentra el objetivo 
+                for (int j = 0; j < r6.length - 1; j++) {                       //Se crea un ciclo que recorre todos los antecedentes
+                    elementosF[j] = r6[j];                                      //copia cada uno de los antecedentes al arreglo temporal
+                    System.out.println("Antecedente R6: " + elementosF[j]);     //imprime todos los antecedentes de h6
+                }
+                for (int j = 0; j < elementosF.length; j++) {                   //Recorre todos los elementos de R6
+                    for (int k = 0; k < l.size(); k++) {                        //Recorre todos los elementos conocidos
+                        if (l.get(k).equals(elementosF[j]) && elementosF[j].equals("h7") && bandera7 == false) {//Activa las banderas elementosConocidos
+                            bandera7 = true;
+                            System.out.println("h7 se encuentra en la base de conocimiento");
+                        }
+                    }
+                }
+                //BANDERAS "h5" 
+                if (bandera7 && verdadero == false) {   //Verifica si el objetivo es verdadero
+                    System.out.println("\nElementos en la base de conocimiento");//Imprime los elementos en la bc
+                    for (int q = 0; q < l.size(); q++) {                        //Recorre la lista dinamica 
+                          System.out.println("Elemento " + l.get(q) + ",");       //Imprime la base de conocimiento 
+                    }
+                    System.out.println();
+                    System.out.println("\nEl objetivo " + objetivo + " es VERDADERO");//Indica que el objetivo es verdadero
+                    System.out.println("R6. |h7| ==> h6");
+                    verdadero = true;
+                    banderas();
+                }
+                //0 
+                if (verdadero == false && bandera7 == false) {
+                    otro("h7");                                                 //Se agrega h7 a la base de conocimiento
+                    System.out.println();
+                    System.out.println("\nElementos en la base de conocimiento");//Imprime los elementos en la bc
+                    for (int q = 0; q < l.size(); q++) {                        //Recorre la lista dinamica 
+                          System.out.println("Elemento " + l.get(q) + ",");     //Imprime la base de conocimiento 
+                    }
+                    System.out.println();                    
+                    System.out.println("\nEl objetivo " + objetivo + " es VERDADERO");//Indica que el objetivo es verdadero
+                    System.out.println("R6. |h7| ==> h6");
+                    verdadero = true;
+                    banderas();
+                }
+            }
         }
         if (objetivo.equals(r7[2]) && verdadero == false) {
 
