@@ -1071,7 +1071,7 @@ public class B11 extends javax.swing.JFrame {
                         }
                     }
                 }
-                //BANDERAS "h5" 
+                //BANDERAS "h6" 
                 if (bandera7 && verdadero == false) {   //Verifica si el objetivo es verdadero
                     System.out.println("\nElementos en la base de conocimiento");//Imprime los elementos en la bc
                     for (int q = 0; q < l.size(); q++) {                        //Recorre la lista dinamica 
