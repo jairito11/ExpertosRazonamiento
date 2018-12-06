@@ -1043,6 +1043,7 @@ public class B11 extends javax.swing.JFrame {
                     System.out.println("R5. |h9|h1| ==> h2");
                     verdadero = true;
                     banderas();
+                    //Corrector git
                 }
             }
         }
