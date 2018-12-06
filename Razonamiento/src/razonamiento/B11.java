@@ -852,7 +852,7 @@ public class B11 extends javax.swing.JFrame {
                 }
             }            
         }
-        //OBJETIVO "h1"
+        //OBJETIVO "h1"///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if (objetivo.equals(r3[1]) && verdadero == false) {
             elementosF = new String[r3.length - 1];                             //El arreglo temporal se crea de un tamaño r1
             for (int j = 0; j < l.size(); j++) {                                //Se recorre la lista dinamica
@@ -905,78 +905,144 @@ public class B11 extends javax.swing.JFrame {
                 }
             }
         }
+        //Objetivo H5
         if (objetivo.equals(r4[1]) && verdadero == false) {
+            elementosF = new String[r4.length - 1];                             //El arreglo temporal se crea de un tamaño r4
+            for (int j = 0; j < l.size(); j++) {                                //Se recorre la lista dinamica
+                if (l.get(j).equals("h5")) {                                    //Se verifica si el elemento que buscamos ya se encuentra en la bc
+                    verdadero = true;                                           //Si es verdadero la variable "verdadero" cambia a true
+                    System.out.println("El objetivo " + objetivo + " es verdadero");//Se imprime que el objetivo es verdadero
+                    break;                                                      //Se rompe el ciclo
+                }
 
-        }
-        if (objetivo.equals(r5[2]) && verdadero == false) {
-            elementosF = new String[r5.length - 1];
-            for (int j = 0; j < l.size(); j++) {
-                if (l.get(j).equals("h2")) {
+            }
+            //ANTECEDENTES "h5"
+            if (verdadero == false) {                                           //Se checa si aún no se encuentra el objetivo 
+                for (int j = 0; j < r4.length - 1; j++) {                       //Se crea un ciclo que recorre todos los antecedentes
+                    elementosF[j] = r4[j];                                      //copia cada uno de los antecedentes al arreglo temporal
+                    System.out.println("Antecedente R4: " + elementosF[j]);     //imprime todos los antecedentes de h5
+                }
+                for (int j = 0; j < elementosF.length; j++) {                   //Recorre todos los elementos de R0
+                    for (int k = 0; k < l.size(); k++) {                        //Recorre todos los elementos conocidos
+                        if (l.get(k).equals(elementosF[j]) && elementosF[j].equals("h6") && bandera6 == false) {//Activa las banderas elementosConocidos
+                            bandera6 = true;
+                            System.out.println("h6 se encuentra en la base de conocimiento");
+                        }
+                    }
+                }
+                //BANDERAS "h5" 
+                if (bandera6 && verdadero == false) {   //Verifica si el objetivo es verdadero
+                    System.out.println("\nElementos en la base de conocimiento");//Imprime los elementos en la bc
+                    for (int q = 0; q < l.size(); q++) {                        //Recorre la lista dinamica 
+                          System.out.println("Elemento " + l.get(q) + ",");       //Imprime la base de conocimiento 
+                    }
+                    System.out.println();
+                    System.out.println("\nEl objetivo " + objetivo + " es VERDADERO");//Indica que el objetivo es verdadero
+                    System.out.println("R4. |h6| ==> h5");
                     verdadero = true;
-                    System.out.println("El objetivo " + objetivo + " es verdadero");
-                    break;
+                    banderas();
+                }
+                //0 
+                if (verdadero == false && bandera6 == false) {
+                    otro("h6");                                                 //Se agrega h6 a la base de conocimiento
+                    System.out.println();
+                    System.out.println("\nElementos en la base de conocimiento");//Imprime los elementos en la bc
+                    for (int q = 0; q < l.size(); q++) {                        //Recorre la lista dinamica 
+                          System.out.println("Elemento " + l.get(q) + ",");     //Imprime la base de conocimiento 
+                    }
+                    System.out.println();                    
+                    System.out.println("\nEl objetivo " + objetivo + " es VERDADERO");//Indica que el objetivo es verdadero
+                    System.out.println("R4. |h6| ==> h5");
+                    verdadero = true;
+                    banderas();
                 }
             }
-            if (verdadero == false) {
-                for (int j = 0; j < r5.length - 1; j++) {
-                    elementosF[j] = r5[j];
-                    System.out.println("Antecedente R5: " + elementosF[j]);
+        }
+        //Objetivo "H2"
+        if (objetivo.equals(r5[2]) && verdadero == false) {
+            elementosF = new String[r5.length - 1];                             //El arreglo temporal se crea de un tamaño r5
+            for (int j = 0; j < l.size(); j++) {                                //Se recorre la lista dinamica
+                if (l.get(j).equals("h2")) {                                    //Se verifica si el elemento que buscamos ya se encuentra en la bc
+                    verdadero = true;                                           //Si es verdadero la variable "verdadero" cambia a true
+                    System.out.println("El objetivo " + objetivo + " es verdadero");//Se imprime que el objetivo es verdadero
+                    break;                                                      //Se rompe el ciclo
                 }
-                for (int j = 0; j < elementosF.length; j++) {
-                    for (int k = 0; k < l.size(); k++) {
+            }
+            //ANTECEDENTES "h2"
+            if (verdadero == false) {                                           //Se checa si aún no se encuentra el objetivo 
+                for (int j = 0; j < r5.length - 1; j++) {                       //Se crea un ciclo que recorre todos los antecedentes
+                    elementosF[j] = r5[j];                                      //copia cada uno de los antecedentes al arreglo temporal
+                    System.out.println("Antecedente R5: " + elementosF[j]);     //imprime todos los antecedentes de h2
+                }
+                for (int j = 0; j < elementosF.length; j++) {                   //Recorre todos los elementos de R5
+                    for (int k = 0; k < l.size(); k++) {                        //Recorre todos los elementos conocidos
+                        if (l.get(k).equals(elementosF[j]) && elementosF[j].equals("h1") && bandera1 == false) {//Activa las banderas elementosConocidos
+                            bandera1 = true;
+                            System.out.println("h1 se encuentra en la base de conocimiento");
+                        }
                         if (l.get(k).equals(elementosF[j]) && elementosF[j].equals("h9") && bandera9 == false) {
                             bandera9 = true;
                             System.out.println("h9 se encuentra en la base de conocimiento");
                         }
-                        if (l.get(k).equals(elementosF[j]) && elementosF[j].equals("h1") && bandera1 == false) {
-                            bandera1 = true;
-                            System.out.println("h1 se encuentra en la base de conocimiento");
-                        }
-
                     }
                 }
-                if (bandera9 && bandera1) {
-                    System.out.println("\nElementos en la base de conocimiento");
-                    for (int q = 0; q < num; q++) {
-                        System.out.print(" " + elementosI[q] + " ");
-                        l.add(elementosI[q]);
+                //BANDERAS "h2" 
+                //7 1.1
+                if (bandera1 && bandera9 && verdadero == false) {   //Verifica si el objetivo es verdadero
+                    System.out.println("\nElementos en la base de conocimiento");//Imprime los elementos en la bc
+                    for (int q = 0; q < l.size(); q++) {                        //Recorre la lista dinamica 
+                          System.out.println("Elemento " + l.get(q) + ",");       //Imprime la base de conocimiento 
                     }
                     System.out.println();
-                    System.out.println("El objetivo " + objetivo + " es verdadero por R6");
-                    verdadero = true;
-                }
-                if (verdadero == false && bandera9 == false && bandera1 == false) {
-                    otro("h1");
-                    otro("h7");
-                    System.out.println();
-                    System.out.println("El objetivo " + objetivo + " es verdadero por R0");
+                    System.out.println("\nEl objetivo " + objetivo + " es VERDADERO");//Indica que el objetivo es verdadero
                     System.out.println("R5. |h9|h1| ==> h2");
                     verdadero = true;
-
-                    System.out.println("Para poder continuar\nSe toma h3 como verdadero\n");
-                    bandera3 = true;
+                    banderas();
                 }
-                if (verdadero == false && bandera9 == false && bandera1 == true) {
-                    otro("h5");
+                //0 0.0
+                if (verdadero == false && bandera1 == false && bandera9 == false) {
+                    otro("h1");                                                 //Se agrega h1 a la base de conocimiento
+                    otro("h9");                                                 //Se procede a encontrar h9
                     System.out.println();
-                    System.out.println("El objetivo " + objetivo + " es verdadero por R4");
-                    System.out.println("R0. |h8|h6|h5| ==> h4");
+                    System.out.println("\nElementos en la base de conocimiento");//Imprime los elementos en la bc
+                    for (int q = 0; q < l.size(); q++) {                        //Recorre la lista dinamica 
+                          System.out.println("Elemento " + l.get(q) + ",");     //Imprime la base de conocimiento 
+                    }
+                    System.out.println();                    
+                    System.out.println("\nEl objetivo " + objetivo + " es VERDADERO");//Indica que el objetivo es verdadero
+                    System.out.println("R5. |h9|h1| ==> h2");
                     verdadero = true;
+                    banderas();
                 }
-                if (verdadero == false && bandera9 == true && bandera1 == false) {
-                    otro("h6");
+                //1 0.1
+                if (verdadero == false && bandera1 == false && bandera9 == true) {
+                    otro("h1");                                                 //Se procede a encontrar h1
+                    System.out.println("h9 se encuentra en la base de conocimiento");
                     System.out.println();
-                    System.out.println("El objetivo " + objetivo + " es verdadero por R6");
-                    System.out.println("R0. |h8|h6|h5| ==> h4");
+                    System.out.println("\nElementos en la base de conocimiento");//Imprime los elementos en la bc
+                    for (int q = 0; q < l.size(); q++) {                        //Recorre la lista dinamica 
+                          System.out.println("Elemento " + l.get(q) + ",");     //Imprime la base de conocimiento 
+                    }
+                    System.out.println();                    
+                    System.out.println("\nEl objetivo " + objetivo + " es VERDADERO");//Indica que el objetivo es verdadero
+                    System.out.println("R5. |h9|h1| ==> h2");
                     verdadero = true;
+                    banderas();
                 }
-                if (verdadero == false && bandera9 == true && bandera1 == true) {
-                    otro("h5");
-                    otro("h6");
+                //2 1.0
+                if (verdadero == false && bandera1 == true && bandera9 == false) {
+                    otro("h9");                                                 //Se procede a encontrar h9
+                    System.out.println("h1 se encuentra en la base de conocimiento");
+                    System.out.println();  
+                    System.out.println("\nElementos en la base de conocimiento");//Imprime los elementos en la bc
+                    for (int q = 0; q < l.size(); q++) {                        //Recorre la lista dinamica 
+                          System.out.println("Elemento " + l.get(q) + ",");     //Imprime la base de conocimiento 
+                    }                    
                     System.out.println();
-                    System.out.println("El objetivo " + objetivo + " es verdadero por R6");
-                    System.out.println("R0. |h8|h6|h5| ==> h4");
+                    System.out.println("\nEl objetivo " + objetivo + " es VERDADERO");//Indica que el objetivo es verdadero
+                    System.out.println("R5. |h9|h1| ==> h2");
                     verdadero = true;
+                    banderas();
                 }
             }
         }
